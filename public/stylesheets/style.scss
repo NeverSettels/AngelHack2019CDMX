@@ -1,8 +1,33 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
 }
 
 a {
-  color: #00B7FF;
+  color: #00b7ff;
+}
+#messagebox {
+  width: 50vw;
+  height: 75vh;
+  padding: 5%;
+  background-image: linear-gradient(rgb(15, 15, 15), rgb(75, 75, 75));
+}
+.container {
+  width: 50vw;
+  height: 75vh;
+}
+.container > .container {
+  padding: 0;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+textarea {
+  width: 80%;
+}
+button {
+  width: 20%;
+}
+textarea:focus {
+  border-color: darkgray;
 }
