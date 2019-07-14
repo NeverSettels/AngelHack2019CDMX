@@ -1,14 +1,12 @@
 <div class="container">
   <div id='messagebox' class="invisible-scrollbar rounded-lg  overflow-auto">
-    {{!-- {{#each }} --}}
+    {{#each posts}}
 
-    {{!-- <p>{{this.text}}</p> --}}
+    <p class="rounded-lg bg-light">{{this.content}}</p>
+    {{/each}}
     <div id='messages'>
-      <p class="rounded-lg">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Minus facilis,
-        delectus aut numquam dignissimos mollitia. Nulla doloremque non ex libero doloribus vero animi fuga pariatur
-        voluptate, voluptatum minima iure nam.</p>
+
     </div>
-    {{!-- {{/each}} --}}
   </div>
   <div class="container">
     <form action="/" method="POST">

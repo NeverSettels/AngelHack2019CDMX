@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const http = require('http')
-
+const Post = require('../models/post')
 let app = require('../app')
 
 // catch 404 and render a not-found.hbs template
@@ -26,6 +26,11 @@ let server = http.createServer(app)
 const io = require('socket.io')(server)
 io.on('connection', function(socket) {
   socket.on('chat message', function(msg) {
+    const content = msg
+    const maxTime = new Date(new Date().valueOf() + 1000 * 3600 * 24)
+
+    Post.create({ content, maxTime })
+
     io.emit('chat message', msg)
   })
 })

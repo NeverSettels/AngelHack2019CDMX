@@ -16,14 +16,7 @@ $(function() {
     $('#m').val('')
     return false
   })
-
   socket.on('chat message', function(msg) {
-    new Message({ content: msg })
-      .then(msg => {
-        $('#messages').append($('<p  class="rounded-lg bg-light">').text(msg))
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    $('#messages').append($('<p  class="rounded-lg bg-light">').text(msg))
   })
 })
