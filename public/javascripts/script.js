@@ -1,3 +1,4 @@
+const Message = require('../../models/Message')
 document.addEventListener(
   'DOMContentLoaded',
   () => {
@@ -15,7 +16,14 @@ $(function() {
     $('#m').val('')
     return false
   })
+
   socket.on('chat message', function(msg) {
-    $('#messages').append($('<p  class="rounded-lg bg-light">').text(msg))
+    new Message({ content: msg })
+      .then(msg => {
+        $('#messages').append($('<p  class="rounded-lg bg-light">').text(msg))
+      })
+      .catch(err => {
+        console.log(err)
+      })
   })
 })
