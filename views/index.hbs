@@ -1,2 +1,19 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}}</p>
+<div class="container">
+  <div id='messagebox' class="invisible-scrollbar rounded-lg  overflow-auto">
+    {{#each posts}}
+
+    <p class="rounded-lg bg-light">{{this.content}}</p>
+    {{/each}}
+    <div id='messages'>
+
+    </div>
+  </div>
+  <div class="container">
+    <form action="/" method="POST">
+      <div class="d-flex justify-content-between">
+        <textarea maxlength="300" type="text" name="message" id="m"></textarea>
+        <button type="submit">Send</button>
+      </div>
+    </form>
+  </div>
+</div>

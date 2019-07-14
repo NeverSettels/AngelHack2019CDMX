@@ -1,6 +1,13 @@
 const Post = require("../models/post");
-exports.getProfile = (req, res, next) => {
-  Post.find().then(post => {
-    res.render("index", post);
+exports.getMessage = (req, res, next) => {
+  Post.find().then(posts => {
+    posts.forEach((e, i) => {
+      if (e.maxTime < new Date()) {
+        const { id } = e.id;
+        Post.findByIdAndDelete(id);
+      }
+    });
+    console.log(posts);
+    res.render("index", { posts });
   });
 };
